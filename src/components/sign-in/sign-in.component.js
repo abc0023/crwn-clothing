@@ -14,23 +14,24 @@ export default class SignIn extends Component {
             password :''
         }
     }
-handleSubmit = async event =>{
-    event.preventDefault();
-    const {email ,password} =this.state;
-
-    try{
-        await auth.signInWithEmailAndPassword(email,password);
-        this.setState({email:"" , password:""})
-    }catch(error){
-        console.log(error);
-    }
+    handleSubmit = async event => {
+        event.preventDefault();
     
-}
+        const { email, password } = this.state;
+    
+        try {
+          await auth.signInWithEmailAndPassword(email, password);
+          this.setState({ email: '', password: '' });
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
-handleChange = event =>{
-    const {value , name} = event.target;
-    this.setState({ [name] : value })
-}
+      handleChange = event => {
+        const { value, name } = event.target;
+    
+        this.setState({ [name]: value });
+      };
     render() {
         return (
             <div  className ="sign-in">
